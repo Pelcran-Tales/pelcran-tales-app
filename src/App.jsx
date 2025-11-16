@@ -1,18 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './index.css'
-import Header from './components/Header.jsx'
-import Home from './pages/Home.jsx'
-import Logbook from './pages/Logbook.jsx'
-import Foundations from './pages/Foundations.jsx'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Logbook from "./pages/Logbook";
+import Foundations from "./pages/Foundations";
+import MainNav from "./components/MainNav";
+import { LayoutProvider } from "./context/LayoutContext"; // make sure path is correct
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
-  )
+    <Router>
+      <LayoutProvider>
+        <div className="min-h-screen relative">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/logbook" element={<Logbook />} />
+            <Route path="/foundations" element={<Foundations />} />
+          </Routes>
+
+          <MainNav />
+        </div>
+      </LayoutProvider>
+    </Router>
+  );
 }
 
-export default App
+
+export default App;
+

@@ -8,10 +8,9 @@ const Header = ({ title }) => {
 
   useEffect(() => {
     if (headerRef.current) {
-      const height = headerRef.current.getBoundingClientRect().height;
-      setHeaderHeight(height);
+      setHeaderHeight(headerRef.current.offsetHeight);
     }
-  });
+  }, [headerRef, setHeaderHeight]);
 
   return (
     <header
