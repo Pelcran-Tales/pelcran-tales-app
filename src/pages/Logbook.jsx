@@ -7,6 +7,7 @@ const Logbook = () => {
     <PageWrapper>
       <Header title="Logbook" />
 
+      <main>
         <p>Welcome to the Logbook page!</p>
       </main>
     </PageWrapper>

@@ -7,6 +7,7 @@ const Foundations = () => {
     <PageWrapper>
       <Header title="Foundations" />
 
+      <main>
         <p>Welcome to the Foundations page!</p>
       </main>
     </PageWrapper>
