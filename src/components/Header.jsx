@@ -1,5 +1,5 @@
 import React from 'react';
-import logoHorizontal from '../assets/logo-horizontal.png';
+import logoHorizontal from '../assets/logo-horizontal.svg';
 
 const Header = ({ title }) => {
   return (

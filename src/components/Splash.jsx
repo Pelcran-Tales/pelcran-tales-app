@@ -1,22 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import verticalLogo from '../assets/logo-vertical.png';
-import App from '../App.jsx'; // This is your homepage component
+import verticalLogo from '../assets/logo-vertical.svg';
 
 function SplashScreen() {
-  const [showSplash, setShowSplash] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 3000); // 3 seconds
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!showSplash) {
-    return <App />; // Show homepage after splash
-  }
-
   return (
-    <div className="w-screen h-screen flex items-center justify-center bg-[#F4EAD5]">
+    <div className="w-screen h-screen flex items-center justify-center bg-[#F4EAD5] pt-16">
       <motion.img
         src={verticalLogo}
         alt="Logo"
