@@ -13,7 +13,7 @@ const Header = ({ title }) => {
         />
 
         {/* Page Title */}
-        <h1 className="font-heading text-h4 sm:text-h3 md:text-h2 text-primaryText mb-0">
+        <h1 className="font-heading text-h1 sm:text-h1-md md:text-h1-lg text-primaryText mb-paragraph-h1">
           {title}
         </h1>
       </div>

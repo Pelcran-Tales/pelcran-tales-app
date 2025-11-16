@@ -6,12 +6,11 @@ const Home = () => {
   return (
     <PageWrapper>
       <Header title="New Log-Entry" />
-
-      {/* Add top padding to prevent content being hidden behind fixed header */}
-      <main className="pt-16">
+      
+      <main>
         <p>Welcome to the homepage!</p>
       </main>
-    <PageWrapper>
+    </PageWrapper>
   );
 };
 

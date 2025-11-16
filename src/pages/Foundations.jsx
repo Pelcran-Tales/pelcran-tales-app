@@ -7,8 +7,6 @@ const Foundations = () => {
     <PageWrapper>
       <Header title="Foundations" />
 
-      {/* Add top padding to prevent content being hidden behind fixed header */}
-      <main className="pt-16">
         <p>Welcome to the Foundations page!</p>
       </main>
     </PageWrapper>
