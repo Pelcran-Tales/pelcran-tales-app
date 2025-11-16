@@ -10,7 +10,6 @@ import Foundations from './pages/Foundations.jsx'
 function App() {
   return (
     <div>
-      <Header />
       <Home />
     </div>
   )
