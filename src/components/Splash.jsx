@@ -4,7 +4,7 @@ import verticalLogo from '../assets/logo-vertical.svg';
 
 function SplashScreen() {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-start bg-[#F4EAD5] pt-24 sm:pt-32 md:pt-40 lg:pt-48">
+    <div className="w-screen h-screen flex flex-col items-center justify-start bg-[#F4EAD5] pt-32 sm:pt-40 md:pt-48 lg:pt-56">
       <motion.img
         src={verticalLogo}
         alt="Logo"
