@@ -7,3 +7,24 @@ html {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .app-container {
+    @apply w-[90%] md:w-[75%] max-w-[1200px] mx-auto;
+  }
+}
+
+@layer utilities {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}

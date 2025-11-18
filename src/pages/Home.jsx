@@ -3,8 +3,13 @@ import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import placeholderImg from '../assets/placeholder.jpg';
 import MessageButton from "../components/MessageButton";
+import PrimaryButton from "../components/PrimaryButton";
+import arrowRight from "../assets/arrow-right.svg";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <PageWrapper>
       <Header title="New Log-Entry" />
@@ -33,17 +38,27 @@ const Home = () => {
 
         {/* Clear float so anything below starts full width */}
         <div className="clear-both" />
+
+        {/* Primary button scrolling with content */}
+        <div className="mt-[15px] mb-[0px]">
+          <PrimaryButton
+            label="PREVIOUS ENTRIES"
+            rightIcon={<img src={arrowRight} alt="Arrow Right" className="w-[18px] h-[18px]" />}
+            onClick={() => navigate("/logbook")}
+          />
+        </div>
       </main>
 
       {/* Fixed MessageButton */}
-      <div className="fixed bottom-[93px] right-[21px] z-50">
-        <MessageButton />
+      <div className="fixed bottom-[93px] right-[5%] md:right-[12.5%] z-50 safe-bottom safe-right">
+        <MessageButton onClick={() => console.log("Message button clicked!")} />
       </div>
     </PageWrapper>
   );
 };
 
 export default Home;
+
 
 
 

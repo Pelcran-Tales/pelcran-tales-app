@@ -59,6 +59,7 @@ module.exports = {
         "paragraph-body-s": "15px",
         "paragraph-caption": "15px",
         "section-gap": "36px",
+        'right-page': 'calc((100vw - var(--page-max-width)) / 2 + 21px)',
       },
       screens: {
         sm: "640px",

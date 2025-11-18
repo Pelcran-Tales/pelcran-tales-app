@@ -15,15 +15,18 @@ const Header = ({ title }) => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 w-full bg-pageBg z-50"
+      className="fixed top-0 left-0 w-full bg-pageBg z-50 safe-top"
     >
-      <div className="
-        max-w-7xl mx-auto
-        flex flex-col items-start
-        px-5 sm:px-6 md:px-8
-        pt-[21px] pb-[21px]
-      ">
-        
+      <div
+        className="
+          mx-auto
+          w-[90%]       /* mobile width logic */
+          md:w-[75%]    /* tablet/laptop */
+          max-w-[1200px]
+          flex flex-col items-start
+          pt-[21px] pb-[21px]
+        "
+      >
         <img
           src={logoHorizontal}
           alt="Logo"
@@ -38,12 +41,12 @@ const Header = ({ title }) => {
         >
           {title}
         </h1>
-
       </div>
     </header>
   );
 };
 
 export default Header;
+
 
 

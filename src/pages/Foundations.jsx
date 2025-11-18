@@ -63,8 +63,8 @@ const Foundations = () => {
       </main>
 
       {/* Fixed MessageButton */}
-      <div className="fixed bottom-[93px] right-[21px] z-50">
-        <MessageButton />
+      <div className="fixed bottom-[93px] right-[5%] md:right-[12.5%] z-50 safe-bottom safe-right">
+        <MessageButton onClick={() => console.log("Message button clicked!")} />
       </div>
     </PageWrapper>
   );

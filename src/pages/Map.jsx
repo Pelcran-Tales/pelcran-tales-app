@@ -15,7 +15,7 @@ const Map = () => {
       <div className="relative">
 
         {/* Fixed Close Button */}
-        <div className="fixed top-[21px] right-[21px] z-[60]">
+        <div className="fixed top-[21px] right-[5%] md:right-[12.5%] z-[60] safe-top safe-right">
           <XButton onClick={() => navigate("/foundations")} />
         </div>
 
@@ -27,7 +27,7 @@ const Map = () => {
           {/* INTRO Section */}
           {/* -------------------------- */}
           <h2 className="font-heading text-h2 text-primaryText mb-[6px] md:text-h2-md lg:text-h2-lg">
-            Intro
+            Hiugbon Archipelago
           </h2>
 
           {/* Full-width responsive image */}

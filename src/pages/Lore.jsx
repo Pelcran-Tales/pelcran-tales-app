@@ -19,7 +19,7 @@ const Lore = () => {
       <div className="relative">
 
       {/* Fixed Close Button */}
-      <div className="fixed top-[21px] right-[21px] z-[60]">
+      <div className="fixed top-[21px] right-[5%] md:right-[12.5%] z-[60] safe-top safe-right">
         <XButton onClick={() => navigate("/foundations")} />
       </div>
 
