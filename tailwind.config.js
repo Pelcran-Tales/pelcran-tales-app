@@ -15,6 +15,10 @@ module.exports = {
         heading: ["Lora", "serif"],      // For H1-H6
         body: ["Gentium Basic", "serif"], // For body/copy
       },
+      fontWeight: {
+        heading: "500", // Medium weight for headings
+        body: "400",    // Regular weight for body text  
+      },
       fontSize: {
         // Mobile first headings
         h1: ["42px", { lineHeight: "51px" }],
@@ -39,8 +43,7 @@ module.exports = {
         "h6-lg": ["20px", { lineHeight: "24px" }],
 
         // Body text
-        "body-l": ["18px", { lineHeight: "21px" }],
-        body: ["15px", { lineHeight: "18px" }],
+        body: ["18px", { lineHeight: "21px" }],
         "body-s": ["12px", { lineHeight: "15px" }],
         caption: ["12px", { lineHeight: "15px" }],
       },
@@ -52,10 +55,10 @@ module.exports = {
         "paragraph-h4": "27px",
         "paragraph-h5": "24px",
         "paragraph-h6": "21px",
-        "paragraph-body-l": "21px",
-        "paragraph-body": "18px",
+        "paragraph-body": "21px",
         "paragraph-body-s": "15px",
         "paragraph-caption": "15px",
+        "section-gap": "36px",
       },
       screens: {
         sm: "640px",

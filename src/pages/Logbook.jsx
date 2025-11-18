@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
+import MessageButton from "../components/MessageButton";
 
 const Logbook = () => {
   return (
@@ -8,8 +9,16 @@ const Logbook = () => {
       <Header title="Logbook" />
 
       <main>
-        <p>Pelcran Tales Log-Entries are coming soon!</p>
+        {/* H2 subtitle */}
+        <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg">
+          Pelcran Tales log-entries are coming soon!
+        </h2>
       </main>
+
+      {/* Fixed MessageButton */}
+      <div className="fixed bottom-[93px] right-[21px] z-50">
+        <MessageButton />
+      </div>
     </PageWrapper>
   );
 };

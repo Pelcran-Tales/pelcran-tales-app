@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import placeholderImg from '../assets/placeholder.jpg';
+import MessageButton from "../components/MessageButton";
 
 const Home = () => {
   return (
@@ -33,6 +34,11 @@ const Home = () => {
         {/* Clear float so anything below starts full width */}
         <div className="clear-both" />
       </main>
+
+      {/* Fixed MessageButton */}
+      <div className="fixed bottom-[93px] right-[21px] z-50">
+        <MessageButton />
+      </div>
     </PageWrapper>
   );
 };
