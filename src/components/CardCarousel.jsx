@@ -1,19 +1,55 @@
 // src/components/CardCarousel.jsx
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import placeholderImg from "../assets/placeholder.jpg";
 import PrimaryButton from "./PrimaryButton";
-import { ReactComponent as ArrowLeft } from "../assets/arrow-left.svg"; // create/import this if needed
+import { ReactComponent as ArrowLeft } from "../assets/arrow-left.svg";
 import { ReactComponent as ArrowRight } from "../assets/arrow-right.svg";
+
+const SWIPE_THRESHOLD = 50; // pixels required to register a swipe
 
 const CardCarousel = ({ cards = [], onCardClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
   const total = cards.length;
 
   const prev = () => setCurrentIndex((currentIndex - 1 + total) % total);
   const next = () => setCurrentIndex((currentIndex + 1) % total);
 
+  /* --- Touch Handlers --- */
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(distance) > SWIPE_THRESHOLD) {
+      if (distance > 0) {
+        next(); // swipe left → next
+      } else {
+        prev(); // swipe right → previous
+      }
+    }
+
+    // reset tracking
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
-    <div className="relative w-full">
+    <div
+      className="relative w-full"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Carousel wrapper */}
       <div className="relative h-[224px] md:h-[280px] flex items-center justify-center">
         {cards.map((card, idx) => (
@@ -33,7 +69,9 @@ const CardCarousel = ({ cards = [], onCardClick }) => {
                 alt={card.title}
                 className="w-full aspect-square object-cover rounded-[6px]"
               />
-              <h4 className="font-heading text-h4 text-center mt-3">{card.title}</h4>
+              <h4 className="font-heading text-h4 text-center mt-3">
+                {card.title}
+              </h4>
             </div>
           </div>
         ))}
