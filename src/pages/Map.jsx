@@ -16,7 +16,7 @@ import restradPortImg from '../assets/restrad-port.jpg';
 
 const Map = () => {
   const navigate = useNavigate();
-   const [activePopup, setActivePopup] = useState(null); // tracks which button popup is open
+  const [activePopup, setActivePopup] = useState(null); // tracks which button popup is open
 
   // Design coordinates for buttons
   const designWidth = 318;
@@ -76,12 +76,12 @@ const Map = () => {
 
         <Header title="Map" />
 
-        <main className="mt-[21px]"> {/* optional margin-top to avoid overlap with header */}
+        <main>
 
           {/* -------------------------- */}
           {/* INTRO Section */}
           {/* -------------------------- */}
-          <h2 className="font-heading text-h2 text-primaryText mb-[6px] md:text-h2-md lg:text-h2-lg">
+          <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg">
             Hiugbon Archipelago
           </h2>
 
@@ -141,5 +141,3 @@ const Map = () => {
 };
 
 export default Map;
-
-

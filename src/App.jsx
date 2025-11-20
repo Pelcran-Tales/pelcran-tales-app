@@ -6,6 +6,11 @@ import Foundations from "./pages/Foundations";
 import Lore from "./pages/Lore";            // ← IMPORT LORE PAGE
 import Map from "./pages/Map";
 import MainNav from "./components/MainNav";
+import Characters from "./pages/Characters";
+import Disgrace from "./pages/Disgrace";
+import Alaricsoath from "./pages/Alaricsoath";
+import Sunkenchest from "./pages/Sunkenchest";
+
 import { LayoutProvider } from "./context/LayoutContext";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -25,6 +30,12 @@ function App() {
 
             {/* ➜ NEW ROUTE FOR MAP PAGE */}
             <Route path="/map" element={<Map />} />
+
+            <Route path="/characters" element={<Characters />} />
+            <Route path="/disgrace" element={<Disgrace />} />
+            <Route path="/alaricsoath" element={<Alaricsoath />} />
+            <Route path="/sunkenchest" element={<Sunkenchest />} />
+
 
           </Routes>
 

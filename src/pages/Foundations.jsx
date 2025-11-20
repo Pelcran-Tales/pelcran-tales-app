@@ -47,7 +47,7 @@ const Foundations = () => {
           onClick={() => navigate("/map")}
         />
 
-        {/* CHARACTERS CARD — link later if needed */}
+        {/* CHARACTERS CARD — navigates to /characters */}
         <Card
           title="Characters"
           showSubtitle={false}
@@ -58,6 +58,7 @@ const Foundations = () => {
               className="w-full h-full object-cover rounded-md"
             />
           }
+          onClick={() => navigate("/characters")}
         />
 
       </main>
