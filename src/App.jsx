@@ -7,10 +7,12 @@ import Lore from "./pages/Lore";            // ← IMPORT LORE PAGE
 import Map from "./pages/Map";
 import MainNav from "./components/MainNav";
 import { LayoutProvider } from "./context/LayoutContext";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <LayoutProvider>
         <div className="min-h-screen relative">
           <Routes>

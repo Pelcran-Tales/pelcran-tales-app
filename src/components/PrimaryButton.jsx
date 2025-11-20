@@ -1,13 +1,40 @@
+// src/components/PrimaryButton.jsx
 import React from "react";
 
-const PrimaryButton = ({ label, leftIcon, rightIcon, onClick }) => {
-  const renderIcon = (iconElement) => {
-    if (!iconElement) return null;
+const ICON_CLASS = "w-[18px] h-[18px] text-[#FDFBF7] fill-current";
 
-    // Check if it's already a React element
-    return React.isValidElement(iconElement)
-      ? React.cloneElement(iconElement, { className: "w-[18px] h-[18px] text-[#FDFBF7]" })
-      : null; // we only support React elements for now
+export default function PrimaryButton({ label, leftIcon, rightIcon, onClick }) {
+  const renderIcon = (icon) => {
+    if (!icon) return null;
+
+    // 1) If it's already a React element (e.g. <svg/> or <img/>)
+    if (React.isValidElement(icon)) {
+      // Add className prop (merge if existing)
+      return React.cloneElement(icon, {
+        className: `${ICON_CLASS} ${icon.props.className || ""}`.trim(),
+      });
+    }
+
+    // 2) If it's a component (function / class) — render it
+    if (typeof icon === "function") {
+      const IconComp = icon;
+      return <IconComp className={ICON_CLASS} />;
+    }
+
+    // 3) If it's a string -> treat as image URL
+    if (typeof icon === "string") {
+      return (
+        <img
+          src={icon}
+          alt=""
+          className="w-[18px] h-[18px] object-cover"
+          // can't recolor a raster, so no color attempt
+        />
+      );
+    }
+
+    // unknown type
+    return null;
   };
 
   return (
@@ -26,17 +53,8 @@ const PrimaryButton = ({ label, leftIcon, rightIcon, onClick }) => {
       "
     >
       {renderIcon(leftIcon)}
-      {label && <span>{label}</span>}
+      {label && <span className="ml-1">{label}</span>}
       {renderIcon(rightIcon)}
     </button>
   );
-};
-
-export default PrimaryButton;
-
-
-
-
-
-
-
+}
