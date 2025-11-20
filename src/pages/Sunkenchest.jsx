@@ -5,11 +5,27 @@ import XButton from "../components/XButton";
 import { useNavigate } from "react-router-dom";
 
 import SectionBlock from '../components/SectionBlock';
+import CardCarousel from '../components/CardCarousel';
 import placeholderImg from '../assets/placeholder.jpg';
 import sunkenchestJollyRogerImg from '../assets/sunkenchest-jolly-roger.jpg';
+import linoothImg from '../assets/linooth.jpg';
+import mosswoodImg from '../assets/mosswood.jpg';
+import olmuzzleImg from '../assets/olmuzzle.jpg';
+import thrasherImg from '../assets/thrasher.jpg';
 
 const Sunkenchest = () => {
   const navigate = useNavigate();
+
+    const cards = [
+    { title: "Linooth", img: linoothImg },
+    { title: "Ol' Muzzle", img: olmuzzleImg },
+    { title: "Mosswood", img: mosswoodImg },
+    { title: "Thrasher", img: thrasherImg },
+  ];
+
+  const handleCardClick = (index) => {
+    console.log("Clicked card:", index);
+  };
 
   return (
     <PageWrapper>
@@ -76,6 +92,12 @@ const Sunkenchest = () => {
           <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">
             The Crew
           </h2>
+
+          {/* Horizontal Carousel */}
+          <div className="mb-[24px]">
+            <CardCarousel cards={cards} 
+            onCardClick={handleCardClick} />
+          </div>
 
         </main>
       </div>

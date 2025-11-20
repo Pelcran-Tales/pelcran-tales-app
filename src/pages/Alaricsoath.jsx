@@ -5,11 +5,28 @@ import XButton from "../components/XButton";
 import { useNavigate } from "react-router-dom";
 
 import SectionBlock from '../components/SectionBlock';
+import CardCarousel from '../components/CardCarousel'; // Proper import
 import placeholderImg from '../assets/placeholder.jpg';
 import alaricsoathJollyRogerImg from '../assets/alaricsoath-jolly-roger.jpg';
+import brunnickImg from '../assets/brunnick.jpg';
+import grunnickImg from '../assets/grunnick.jpg';
+import nimbostratusImg from '../assets/nimbostratus.jpg';
+import thornImg from '../assets/thorn.jpg';
 
 const Alaricsoath = () => {
   const navigate = useNavigate();
+
+  // Cards data for the carousel
+  const cards = [
+    { title: "Brunnick", img: brunnickImg },
+    { title: "Grunnick", img: grunnickImg },
+    { title: "Thorn", img: thornImg },
+    { title: "Nimbostratus", img: nimbostratusImg },
+  ];
+
+  const handleCardClick = (index) => {
+    console.log("Clicked card:", index);
+  };
 
   return (
     <PageWrapper>
@@ -29,7 +46,6 @@ const Alaricsoath = () => {
             Strategic Thinkers
           </h2>
 
-          {/* Body */}
           <p className="font-body text-body text-bodyText mb-[24px]">
             A crew of disciplined, clever and methodical Pelcrans.
           </p>
@@ -59,7 +75,6 @@ const Alaricsoath = () => {
             The Jolly Roger
           </h2>
 
-          {/* Image + body */}
           <div className="mb-[24px]">
             <img
               src={alaricsoathJollyRogerImg}
@@ -76,6 +91,14 @@ const Alaricsoath = () => {
           <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">
             The Crew
           </h2>
+
+          {/* Horizontal Card Carousel */}
+          <div className="mb-[24px]">
+            <CardCarousel
+              cards={cards}
+              onCardClick={handleCardClick}
+            />
+          </div>
 
         </main>
       </div>
