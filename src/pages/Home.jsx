@@ -4,7 +4,7 @@ import PageWrapper from '../components/PageWrapper';
 import placeholderImg from '../assets/placeholder.jpg';
 import MessageButton from "../components/MessageButton";
 import PrimaryButton from "../components/PrimaryButton";
-import arrowRight from "../assets/arrow-right.svg";
+import { ReactComponent as ArrowRight } from "../assets/arrow-right.svg";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -43,7 +43,7 @@ const Home = () => {
         <div className="mt-[15px] mb-[0px]">
           <PrimaryButton
             label="PREVIOUS ENTRIES"
-            rightIcon={<img src={arrowRight} alt="Arrow Right" className="w-[18px] h-[18px]" />}
+            rightIcon={ArrowRight}
             onClick={() => navigate("/logbook")}
           />
         </div>
@@ -58,7 +58,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-
-

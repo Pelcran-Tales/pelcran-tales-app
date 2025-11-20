@@ -101,17 +101,16 @@ const Lore = () => {
         >
           Centuries later, when the Hiugbon Archipelago had long vanished from charts, its name returned in a dying breath.
           <br /><br />
-          The old Helderian ruler, Ehlkaran I, who in youth had vanished once upon a “cartographic venture,” lay upon death’s edge. 
-          Their final whisper to their heir was two words only — Find Hiugbon.
+          The old Helderian King, Ehlkaran I, who in youth had vanished once upon a “cartographic venture,” lay upon death’s edge. 
+          His final whisper to his heir was two words only — Find Hiugbon.
           <br /><br />
-          The court dismissed it as delirium, but to the new ruler, Sovereign Thaenric II, the words bore inheritance — the echo of a secret 
+          The court dismissed it as delirium, but to his son, later known as King Thaenric II, the words bore inheritance — the echo of a secret 
           charge passed silently from crown to crown. Legends spoke of a lost imperial outpost, a forgotten triumph buried beneath waves.
           <br /><br />
-          Driven by obsession, Thaenric II scoured archives until fragments surfaced — a half-decayed tome called the ‘Hiu’gban Diary’, written 
-          by long-dead explorers who once reached an uncharted archipelago. It told of peace, abundance, and a mystery half-erased.
+          Driven by obsession, the new King had archives scoured from top to bottom, until fragments surfaced — a half-decayed tome called the ‘Hiu’gban Diary’, 
+          written by long-dead explorers who once reached an uncharted archipelago. It told of peace, abundance, and a mystery half-erased.
           <br /><br />
-          The sovereign’s curiosity hardened into conviction: their ancestors had set foot there. Something of value — perhaps something 
-          glorious — had been lost.
+          The King’s curiosity hardened into conviction: his ancestors had set foot there. Something of value — perhaps something glorious — had been lost.
           <br /><br />
           Explorers were sent. The first arrived around fifteen years before the conquest. They lived among the Hiugbonians, mapping coasts, 
           learning their customs, even joining in their fishing journeys. These emissaries returned with reports of a peaceful people and 
@@ -149,7 +148,7 @@ const Lore = () => {
           imgSrc={placeholderImg}
           imgAlt="The Helderian Conquest"
         >
-          Under Sovereign Thaenric II, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what it now called its ancestral domain.
+          Under King Thaenric II, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what it now called its ancestral domain.
           <br /><br />
           They entered Restrad Port under banners of blood and history, proclaiming that the archipelago belonged to Helderia by right of rediscovery. 
           The Hiugbonians, unarmed and bewildered, welcomed them with caution and courtesy — believing diplomacy could avert disaster. It could not.
@@ -175,17 +174,17 @@ const Lore = () => {
           <br /><br />
           Until Pelcran.
           <br /><br />
-          Among the early Hiugbonian resistance rose a sailor named Pelcran, known across their coast for courage and skill upon the waves. One night, 
-          while fleeing pursuit, they stumbled upon a treacherous corridor of jagged rocks and shifting currents — a place so perilous it seemed meant 
-          to swallow ships whole. This passage, later named the Ferrownek, led into a hidden bay.
+          Among the early Hiugbonian resistance rose a sailor named Pelcran, known across their coast for courage and skill upon the waves. One night, while 
+          fleeing pursuit, he stumbled upon a treacherous corridor of jagged rocks and shifting currents — a place so perilous it seemed meant to swallow ships 
+          whole. This passage, later named the Ferrownek, led into a hidden bay.
           <br /><br />
           Where others might have seen only death, Pelcran saw opportunity.
           <br /><br />
           A few days later, sailing under a false flag, Pelcran lured three Helderian galleons into the Ferrownek, but the galleons were too vast, too heavy, 
           too unyielding. One by one, the sea tore them apart against the rocks. When dawn broke, only Pelcran’s vessel remained — and with it, the birth of legend.
           <br /><br />
-          In that hidden bay, they carved meeting halls into the cliffs, echoing the stone halls of the old villages. This became the First Pirate Coven, a refuge 
-          for all who refused submission. From then on, the name Pelcran was no longer a person — it was a people.
+          In that hidden bay, he carved meeting halls into the cliffs, echoing the stone halls of the old villages. This became Oppeden, the first pirate hideout, a 
+          refuge for all who refused submission. From then on, the name Pelcran was no longer a person — it was a people.
           <br /><br />
           By Year 18, resistance had evolved from survival to identity. The sea had chosen its children anew.
         </SectionBlock>       
@@ -196,7 +195,8 @@ const Lore = () => {
           imgSrc={placeholderImg}
           imgAlt="The Age of Pelcrans"
         >
-          Eighty years have passed since Pelcran’s victory. The Helderian Empire endures upon the land, its fortress-city Restrad gleaming with the spoils of peace. 
+          Eighty years have passed since Pelcran’s victory. <br />
+          The Helderian Empire endures upon the land, its fortress-city Restrad gleaming with the spoils of peace. 
           But beyond the reefs, freedom sails.
           <br /><br />
           The Pelcrans, descendants of rebels and wanderers, live by salt and storm. To them, being Hiugbonian is heritage — being Pelcran is vow. The sea is both 
@@ -205,10 +205,10 @@ const Lore = () => {
           Neither Empire nor rebellion hold dominion. Helderia commands the land, but its fleets falter against the reefs and mists. The Pelcrans own the waves, yet 
           cannot reclaim the stone heart of their homeland. The stalemate endures: a war without end, a balance as fragile as foam.
           <br /><br />
-          Yet now, under the reign of Sovereign Maetharien IX, the Empire’s gaze has turned once more toward the deep. Dissatisfied with stalemate, the sovereign has 
-          ordered new expeditions — not to conquer, but to understand.
+          Yet now, under the reign of Queen Maetharien IX, the Empire’s gaze has turned once more toward the deep. Dissatisfied with stalemate, she has ordered new 
+          expeditions — not to conquer, but to understand.
           <br /><br />
-          They speak of uncovering the true origin of Helderia’s claim — of learning what Sovereign Ehlkaran I once found and why they whispered as they died. 
+          She speaks of uncovering the true origin of Helderia’s claim — of learning what King Ehlkaran I once found and why he whispered as he died. 
           Scholars call it a quest for legacy. Sailors call it temptation.
           <br /><br />
           For in the oldest rhyme still sung to Helderian children before voyages, a line remains:<br />
