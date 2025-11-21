@@ -24,26 +24,30 @@ const Characters = () => {
 
         <Header title="Characters" />
 
-        <main className="flex flex-col gap-[15px]">
+        <main>
 
           {/* First h2 — spacing matches reference */}
           <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg mt-0">
             Pelcran Crews
           </h2>
 
-          <Card
+          <div className="mb-[15px]">
+            <Card
             title="The Disgrace"
             showSubtitle={false}
             image={<img src={disgraceflagImg} alt="The Disgrace" className={imgClass} />}
             onClick={() => navigate("/disgrace")}
-          />
+            />
+            </div>
 
+          <div className="mb-[15px]">
           <Card
             title="The Alaric’s Oath"
             showSubtitle={false}
             image={<img src={alaricsoathflagImg} alt="Alaric’s Oath" className={imgClass} />}
             onClick={() => navigate("/alaricsoath")}
           />
+          </div>
 
           <Card
             title="The Sunken Chest"

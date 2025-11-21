@@ -1,103 +1,70 @@
 // src/components/CardCarousel.jsx
-import React, { useState, useRef } from "react";
-import placeholderImg from "../assets/placeholder.jpg";
-import PrimaryButton from "./PrimaryButton";
-import { ReactComponent as ArrowLeft } from "../assets/arrow-left.svg";
-import { ReactComponent as ArrowRight } from "../assets/arrow-right.svg";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
-const SWIPE_THRESHOLD = 50; // pixels required to register a swipe
+import "swiper/css";
+import "swiper/css/pagination";
+
+import placeholderImg from "../assets/placeholder.jpg";
+
+const SLIDE_WIDTH = 183;
+const SLIDE_HEIGHT = 270;
 
 const CardCarousel = ({ cards = [], onCardClick }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const touchStartX = useRef(null);
-  const touchEndX = useRef(null);
-  const total = cards.length;
-
-  const prev = () => setCurrentIndex((currentIndex - 1 + total) % total);
-  const next = () => setCurrentIndex((currentIndex + 1) % total);
-
-  /* --- Touch Handlers --- */
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-
-    const distance = touchStartX.current - touchEndX.current;
-
-    if (Math.abs(distance) > SWIPE_THRESHOLD) {
-      if (distance > 0) {
-        next(); // swipe left → next
-      } else {
-        prev(); // swipe right → previous
-      }
-    }
-
-    // reset tracking
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
   return (
-    <div
-      className="relative w-full"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* Carousel wrapper */}
-      <div className="relative h-[224px] md:h-[280px] flex items-center justify-center">
+    <div className="relative w-full flex flex-col items-center">
+
+      {/* SWIPER */}
+      <Swiper
+        modules={[Pagination]}
+        pagination={{
+          clickable: true,
+        }}
+        centeredSlides={true}
+        slidesPerView={1.25}      // 👈 Small peek on each side
+        spaceBetween={20}
+        breakpoints={{
+          768: {
+            slidesPerView: 1.5,   // 👈 Slightly larger peek on tablet
+          },
+        }}
+        className="pb-8"          // 👈 Adds space for the dots BELOW
+        style={{
+          width: SLIDE_WIDTH * 1.8,   // enough width to show peek
+          height: SLIDE_HEIGHT,
+        }}
+      >
         {cards.map((card, idx) => (
-          <div
-            key={idx}
-            className={`absolute transition-opacity duration-500 ease-in-out
-              ${idx === currentIndex ? "opacity-100" : "opacity-0"}
-            `}
-            style={{ width: "182px", height: "224px" }}
-          >
+          <SwiperSlide key={idx} className="flex justify-center">
             <div
               onClick={() => onCardClick(idx)}
-              className="w-full h-full p-3 bg-[#F4EAD5] rounded-[6px] cursor-pointer flex flex-col items-center"
+              className="w-[183px] h-[225px] p-3 bg-[#F4EAD5] rounded-[6px] cursor-pointer flex flex-col items-center shadow-md"
             >
               <img
                 src={card.img || placeholderImg}
                 alt={card.title}
                 className="w-full aspect-square object-cover rounded-[6px]"
               />
+
               <h4 className="font-heading text-h4 text-center mt-3">
                 {card.title}
               </h4>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
-      {/* Dots */}
-      <div className="flex justify-center mt-[15px] gap-[6px]">
-        {cards.map((_, idx) => (
-          <span
-            key={idx}
-            className={`w-3 h-3 rounded-full ${
-              idx === currentIndex ? "bg-[#5B4B36]" : "bg-[#DEDBD7]"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Left arrow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2">
-        <PrimaryButton leftIcon={ArrowLeft} onClick={prev} />
-      </div>
-
-      {/* Right arrow */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2">
-        <PrimaryButton rightIcon={ArrowRight} onClick={next} />
-      </div>
+      {/* CUSTOM DOT COLORS */}
+      <style>{`
+        .swiper-pagination-bullet {
+          background: #DEDBD7 !important; /* inactive dot */
+          opacity: 1 !important;
+        }
+        .swiper-pagination-bullet-active {
+          background: #5B4B36 !important; /* active dot */
+        }
+      `}</style>
     </div>
   );
 };

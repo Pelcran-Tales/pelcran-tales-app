@@ -16,9 +16,14 @@ export default function PopupWindow({ children, onClose }) {
       <div
         className="
           relative
-          w-full mx-auto w-[85%] md:w-[70%] max-w-[1100px]
-          h-full max-h-[calc(100%-60px)]
-          bg-[#F4EAD5] rounded-[6px]
+          w-[90%]            /* MATCH PageWrapper mobile width */
+          md:w-[75%]         /* MATCH PageWrapper tablet & laptop width */
+          max-w-[1200px]     /* MATCH PageWrapper max width */
+          mx-auto
+          h-full 
+          max-h-[calc(100%-60px)]
+          bg-[#F4EAD5] 
+          rounded-[6px]
           overflow-hidden
         "
       >
@@ -35,4 +40,3 @@ export default function PopupWindow({ children, onClose }) {
     </div>
   );
 }
-
