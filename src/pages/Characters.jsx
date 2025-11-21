@@ -5,9 +5,12 @@ import XButton from "../components/XButton";
 import { useNavigate } from "react-router-dom";
 
 import Card from '../components/Card';
+import MiniCard from "../components/MiniCard";
+
 import disgraceflagImg from '../assets/disgrace-flag.jpg';
 import alaricsoathflagImg from '../assets/alaricsoath-flag.jpg';
 import sunkenchestflagImg from '../assets/sunkenchest-flag.jpg';
+import placeholderImg from "../assets/placeholder.jpg";
 
 const Characters = () => {
   const navigate = useNavigate();
@@ -60,6 +63,32 @@ const Characters = () => {
           <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg mt-[24px]">
             Other Characters
           </h2>
+
+          <div className="flex flex-wrap gap-4 mb-10">
+            <MiniCard 
+            title="King Ehlk"
+            img={placeholderImg} 
+            onClick={() => {}} 
+            />
+
+            <MiniCard 
+            title="King Fhogee"
+            img={placeholderImg} 
+            onClick={() => {}} 
+            />
+
+            <MiniCard 
+            title="Pelcran"
+            img={placeholderImg} 
+            onClick={() => {}} 
+            />
+
+            <MiniCard 
+            title="Queen Olmek"
+            img={placeholderImg} 
+            onClick={() => {}} 
+            />
+          </div>  
 
         </main>
 

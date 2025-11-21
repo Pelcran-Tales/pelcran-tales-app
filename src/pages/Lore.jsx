@@ -6,6 +6,7 @@ import SectionBlock from '../components/SectionBlock';
 
 import loreImg from '../assets/lore.jpg';
 import placeholderImg from '../assets/placeholder.jpg';
+import ageOfVillagesImg from '../assets/age-of-villages.jpg';
 
 import XButton from "../components/XButton";
 import { useNavigate } from "react-router-dom";
@@ -73,7 +74,7 @@ const Lore = () => {
         <SectionBlock
           titleH2="The Age of Villages"
           titleH4="Centuries before Event 0"
-          imgSrc={placeholderImg}
+          imgSrc={ageOfVillagesImg}
           imgAlt="Age of Villages"
         >
           Before foreign sails pierced their horizon, the Hiugbonians lived in quiet harmony across three islands — one vast and 
@@ -94,17 +95,17 @@ const Lore = () => {
         </SectionBlock>
 
         <SectionBlock
-          titleH2="The Whisper of a Sovereign"
+          titleH2="The Whisper of a King"
           titleH4="20 to 0 years before Event 0"
           imgSrc={placeholderImg}
-          imgAlt="The Whisper of a Sovereign"
+          imgAlt="The Whisper of a King"
         >
           Centuries later, when the Hiugbon Archipelago had long vanished from charts, its name returned in a dying breath.
           <br /><br />
-          The old Helderian King, Ehlkaran I, who in youth had vanished once upon a “cartographic venture,” lay upon death’s edge. 
+          The old Helderian King, Ehlk, who in youth had vanished once upon a “cartographic venture,” lay upon death’s edge. 
           His final whisper to his heir was two words only — Find Hiugbon.
           <br /><br />
-          The court dismissed it as delirium, but to his son, later known as King Thaenric II, the words bore inheritance — the echo of a secret 
+          The court dismissed it as delirium, but to his son, later known as King Fhogee, the words bore inheritance — the echo of a secret 
           charge passed silently from crown to crown. Legends spoke of a lost imperial outpost, a forgotten triumph buried beneath waves.
           <br /><br />
           Driven by obsession, the new King had archives scoured from top to bottom, until fragments surfaced — a half-decayed tome called the ‘Hiu’gban Diary’, 
@@ -148,7 +149,7 @@ const Lore = () => {
           imgSrc={placeholderImg}
           imgAlt="The Helderian Conquest"
         >
-          Under King Thaenric II, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what it now called its ancestral domain.
+          Under King Fhogee, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what it now called its ancestral domain.
           <br /><br />
           They entered Restrad Port under banners of blood and history, proclaiming that the archipelago belonged to Helderia by right of rediscovery. 
           The Hiugbonians, unarmed and bewildered, welcomed them with caution and courtesy — believing diplomacy could avert disaster. It could not.
@@ -205,7 +206,7 @@ const Lore = () => {
           Neither Empire nor rebellion hold dominion. Helderia commands the land, but its fleets falter against the reefs and mists. The Pelcrans own the waves, yet 
           cannot reclaim the stone heart of their homeland. The stalemate endures: a war without end, a balance as fragile as foam.
           <br /><br />
-          Yet now, under the reign of Queen Maetharien IX, the Empire’s gaze has turned once more toward the deep. Dissatisfied with stalemate, she has ordered new 
+          Yet now, under the reign of Queen Olmek, the Empire’s gaze has turned once more toward the deep. Dissatisfied with stalemate, she has ordered new 
           expeditions — not to conquer, but to understand.
           <br /><br />
           She speaks of uncovering the true origin of Helderia’s claim — of learning what King Ehlkaran I once found and why he whispered as he died. 
