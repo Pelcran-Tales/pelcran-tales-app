@@ -57,7 +57,7 @@ const Lore = () => {
           In Pelcran Tales, lore isn’t just back-story, but the pulse of the Hiugbon Archipelago — a tale woven from history and legend alike.<br /> 
           The timeline unfolds through five eras:<br /> 
           - The Age of Villages,<br /> 
-          - The Whisper of a Sovereign,<br /> 
+          - The Whisper of a King,<br /> 
           - The Helderian Conquest,<br /> 
           - The Age of Resistance,<br />
           - The Age of Pelcrans.
@@ -77,12 +77,12 @@ const Lore = () => {
           imgSrc={ageOfVillagesImg}
           imgAlt="Age of Villages"
         >
-          Before foreign sails pierced their horizon, the Hiugbonians lived in quiet harmony across three islands — one vast and 
-          fertile, two smaller and serene. Life gathered along the shores: rows of stilted houses, boats resting in the shallows 
-          and smoke rising from the morning hearths. Theirs was a rhythm of tide and kinship.
+          Long before foreign sails pierced their horizon, the Hiugbonians lived in quiet harmony across the archipelago. Life gathered along 
+          the shores: rows of stilted houses, boats resting in the shallows 
+          and smoke rising from the morning hearths. <br />Theirs was a rhythm of tide and kinship.
           <br /><br />
           Each village followed its own chief, whose authority was light — more keeper than commander. Pride came not from rule, but from 
-          balance. The islands bore no written names; it was said the sea knew each shore by the people who loved it. Only one settlement 
+          balance. No island bore written name; it was said the sea knew each shore by the people who loved it. Only one settlement 
           stood apart: Restrad Port, the heart of trade and gathering, where the archipelago’s currents of exchange met.
           <br /><br />
           The Hiugbonians were deft seafarers, renowned for craftsmanship, patience, and fairness. They traded only for necessity — grain, 
@@ -102,10 +102,9 @@ const Lore = () => {
         >
           Centuries later, when the Hiugbon Archipelago had long vanished from charts, its name returned in a dying breath.
           <br /><br />
-          The old Helderian King, Ehlk, who in youth had vanished once upon a “cartographic venture,” lay upon death’s edge. 
-          His final whisper to his heir was two words only — Find Hiugbon.
+          The old Helderian King, Ehlk, lays upon death’s edge. His final whisper to his heir was two words only — Find Hiugbon.
           <br /><br />
-          The court dismissed it as delirium, but to his son, later known as King Fhogee, the words bore inheritance — the echo of a secret 
+          The court dismissed it as delirium, but to his son, soon known as King Fhogee, the words bore inheritance — the echo of a secret 
           charge passed silently from crown to crown. Legends spoke of a lost imperial outpost, a forgotten triumph buried beneath waves.
           <br /><br />
           Driven by obsession, the new King had archives scoured from top to bottom, until fragments surfaced — a half-decayed tome called the ‘Hiu’gban Diary’, 
@@ -149,7 +148,7 @@ const Lore = () => {
           imgSrc={placeholderImg}
           imgAlt="The Helderian Conquest"
         >
-          Under King Fhogee, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what it now called its ancestral domain.
+          Under King Fhogee, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what was by now considered their ancestral domain.
           <br /><br />
           They entered Restrad Port under banners of blood and history, proclaiming that the archipelago belonged to Helderia by right of rediscovery. 
           The Hiugbonians, unarmed and bewildered, welcomed them with caution and courtesy — believing diplomacy could avert disaster. It could not.
@@ -185,9 +184,9 @@ const Lore = () => {
           too unyielding. One by one, the sea tore them apart against the rocks. When dawn broke, only Pelcran’s vessel remained — and with it, the birth of legend.
           <br /><br />
           In that hidden bay, he carved meeting halls into the cliffs, echoing the stone halls of the old villages. This became Oppeden, the first pirate hideout, a 
-          refuge for all who refused submission. From then on, the name Pelcran was no longer a person — it was a people.
+          refuge for all who refused submission. From then on, the name Pelcran was no longer a person, it was a people.
           <br /><br />
-          By Year 18, resistance had evolved from survival to identity. The sea had chosen its children anew.
+          By Year 18, resistance had evolved from survival to identity. The sea had chosen its children anew — the Pelcrans.
         </SectionBlock>       
 
         <SectionBlock
@@ -209,7 +208,7 @@ const Lore = () => {
           Yet now, under the reign of Queen Olmek, the Empire’s gaze has turned once more toward the deep. Dissatisfied with stalemate, she has ordered new 
           expeditions — not to conquer, but to understand.
           <br /><br />
-          She speaks of uncovering the true origin of Helderia’s claim — of learning what King Ehlkaran I once found and why he whispered as he died. 
+          She speaks of uncovering the true origin of Helderia’s claim — of learning what King Ehlk once found and why he whispered as he died. 
           Scholars call it a quest for legacy. Sailors call it temptation.
           <br /><br />
           For in the oldest rhyme still sung to Helderian children before voyages, a line remains:<br />
@@ -221,8 +220,6 @@ const Lore = () => {
           Helderia claims descent.<br />
           Hiugbon endures in silence.<br />
           And the Pelcrans sail between them — heirs to neither, but claimed by both.
-          <br /><br />
-          The sea forgets nothing.
         </SectionBlock>   
 
       </main>

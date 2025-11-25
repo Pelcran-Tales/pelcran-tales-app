@@ -51,7 +51,7 @@ function SplashScreen({ onFinish }) {
                 : { duration: 1.5, ease: 'easeOut' }
             }
             style={{ transformOrigin: 'center' }}
-            className="w-32 sm:w-36 md:w-40 lg:w-48 mt-[40vh]"
+            className="w-63 sm:w-72 md:w-81 lg:w-96 mt-[40vh]"
           />
         </motion.div>
       )}

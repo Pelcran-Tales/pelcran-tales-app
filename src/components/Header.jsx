@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import logoHorizontal from '../assets/logo-horizontal.svg';
+import logoMark from '../assets/logo-mark.svg';
 import { useLayout } from '../context/LayoutContext';
 
 const Header = ({ title }) => {
@@ -28,7 +28,7 @@ const Header = ({ title }) => {
         "
       >
         <img
-          src={logoHorizontal}
+          src={logoMark}
           alt="Logo"
           className="h-6 w-auto mb-[24px]"
         />
