@@ -90,9 +90,9 @@ const Home = () => {
               Message in a Bottle
             </h2>
             <p className="text-body text-bodyText mb-[24px]">
-              Pelcran Tales is a fantasy world of pirate animals, the Pelcrans — a story of resistance, identity, and survival across a contested island world. 
+              Pelcran Tales is a fantasy world of pirate animals, the Pelcrans — a story of resistance, identity, and survival across a contested archipelago. 
               <br /><br />
-              This is your space for sharing your thoughts — feel free to leave a message; it’s always appreciated. No email or personal data is collected unless you choose to include it in your message.
+              Use the space below to share your thoughts. Send your bottle drifting and sail on… the sea will carry it.<br /> No email or personal data is collected unless you choose to include it in your message.
             </p>
 
             {!isSent ? (
@@ -100,7 +100,7 @@ const Home = () => {
                 <textarea
                   className="w-full bg-[#FDFBF7] placeholder-[#826E49] rounded-[6px] p-[9px] border border-transparent focus:border-[#826E49] focus:outline-none text-body text-bodyText mb-[15px] resize-y"
                   rows={5}
-                  placeholder="Send your bottle drifting and sail on… the sea will carry it."
+                  placeholder="Your message..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />

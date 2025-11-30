@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import XButton from "../components/XButton";
+import PopupWindow from "../components/PopupWindow";
+import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
 import SectionBlock from '../components/SectionBlock';
@@ -23,8 +25,70 @@ const Disgrace = () => {
     { title: "Dubeoth", img: dubeothImg },
   ];
 
+  // --- NEW: Character info for popups ---
+  const characterDetails = [
+    {
+      title: "Cosgrove",
+      subtitle: "Male, Alpaca",
+      image: cosgroveImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Disgrace" },
+        { label: "Traits", value: "Fearless, impulsive, persuasive." },
+        { label: "Strengths", value: "Charisma, rallying energy, talking into risky opportunities." },
+        { label: "Weaknesses", value: "Overreaches, underplans." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Kuv",
+      subtitle: "Female, Clouded Leopard",
+      image: kuvImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Disgrace" },
+        { label: "Traits", value: "Aggressive, bold, risk-taking." },
+        { label: "Strengths", value: "Frontline fighter, confidence." },
+        { label: "Weaknesses", value: "Provokes unnecessary enemies." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Sarnuq",
+      subtitle: "Male, Golden Snub-Nosed Monkey",
+      image: sarnuqImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Disgrace" },
+        { label: "Traits", value: "Energetic, savvy, dynamic." },
+        { label: "Strengths", value: "Improvisation, navigation, trickster instincts." },
+        { label: "Weaknesses", value: "Chaotic planning." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Dubeoth",
+      subtitle: "Male, Red Deer",
+      image: dubeothImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Disgrace" },
+        { label: "Traits", value: "Undaunted, daring, cool-headed." },
+        { label: "Strengths", value: "Balance, tactical calm." },
+        { label: "Weaknesses", value: "Emotional distance." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+  ];
+
+  const [activeCharacter, setActiveCharacter] = React.useState(null);
+
   const handleCardClick = (index) => {
-    console.log("Clicked card:", index);
+    setActiveCharacter(characterDetails[index]);
   };
 
   return (
@@ -94,6 +158,20 @@ const Disgrace = () => {
 
         </main>
       </div>
+
+      {/* --- POPUP --- */}
+      {activeCharacter && (
+        <PopupWindow onClose={() => setActiveCharacter(null)}>
+          <CharacterInfoCard
+            title={activeCharacter.title}
+            subtitle={activeCharacter.subtitle}
+            image={activeCharacter.image}
+            bodyTable={activeCharacter.bodyTable}
+            sectionTitle={activeCharacter.sectionTitle}
+            body2={activeCharacter.body2}
+          />
+        </PopupWindow>
+      )}
     </PageWrapper>
   );
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import XButton from "../components/XButton";
+import PopupWindow from "../components/PopupWindow";
+import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
 import SectionBlock from '../components/SectionBlock';
@@ -24,8 +26,70 @@ const Alaricsoath = () => {
     { title: "Nimbostratus", img: nimbostratusImg },
   ];
 
+  // --- NEW: Character info for popups ---
+  const characterDetails = [
+    {
+      title: "Brunnick",
+      subtitle: "Male, Otter",
+      image: brunnickImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Alaric's Oath" },
+        { label: "Traits", value: "Hesitant, meticulous, devoted and a bit anxious." },
+        { label: "Strengths", value: "Careful planner, reliable." },
+        { label: "Weaknesses", value: "Freezes under sudden stress." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered... but we know he is Grunnick's twin brother.",
+    },
+    {
+      title: "Grunnick",
+      subtitle: "Male, Otter",
+      image: grunnickImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Alaric's Oath" },
+        { label: "Traits", value: "Selfish, paranoid, cautious." },
+        { label: "Strengths", value: "Survival instincts, noticing unseen threats." },
+        { label: "Weaknesses", value: "Distrust." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...but we know he is Brunnick's twin brother.",
+    },
+    {
+      title: "Thorn",
+      subtitle: "Female, Fennec Fox",
+      image: thornImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Alaric's Oath" },
+        { label: "Traits", value: "Bossy, sharp-tongued, observant." },
+        { label: "Strengths", value: "Keen senses, quick deductions." },
+        { label: "Weaknesses", value: "Abrasive to allies." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Nimbostratus",
+      subtitle: "Female, Harpy Eagle",
+      image: nimbostratusImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Alaric's Oath" },
+        { label: "Traits", value: "Dark, grounded, risk-averse." },
+        { label: "Strengths", value: "Sober judgment." },
+        { label: "Weaknesses", value: "Avoids necessary risks." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+  ];
+
+  const [activeCharacter, setActiveCharacter] = React.useState(null);
+
   const handleCardClick = (index) => {
-    console.log("Clicked card:", index);
+    setActiveCharacter(characterDetails[index]);
   };
 
   return (
@@ -102,6 +166,20 @@ const Alaricsoath = () => {
 
         </main>
       </div>
+
+      {/* --- POPUP --- */}
+      {activeCharacter && (
+        <PopupWindow onClose={() => setActiveCharacter(null)}>
+          <CharacterInfoCard
+            title={activeCharacter.title}
+            subtitle={activeCharacter.subtitle}
+            image={activeCharacter.image}
+            bodyTable={activeCharacter.bodyTable}
+            sectionTitle={activeCharacter.sectionTitle}
+            body2={activeCharacter.body2}
+          />
+        </PopupWindow>
+      )}
     </PageWrapper>
   );
 };

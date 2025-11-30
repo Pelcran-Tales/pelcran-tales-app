@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import XButton from "../components/XButton";
+import PopupWindow from "../components/PopupWindow";
+import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
 import SectionBlock from '../components/SectionBlock';
@@ -23,8 +25,70 @@ const Sunkenchest = () => {
     { title: "Thrasher", img: thrasherImg },
   ];
 
+  // --- NEW: Character info for popups ---
+  const characterDetails = [
+    {
+      title: "Linooth",
+      subtitle: "Male, European Pine Marten",
+      image: linoothImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Sunken Chest" },
+        { label: "Traits", value: "Chaotic, idealistic, comical." },
+        { label: "Strengths", value: "Creativity, morale boost." },
+        { label: "Weaknesses", value: "Distractible." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Ol’Muzzle",
+      subtitle: "Male, Eurasian Badger",
+      image: olmuzzleImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Sunken Chest" },
+        { label: "Traits", value: "Unpredictable, imaginative, loyal." },
+        { label: "Strengths", value: "Deep intuition, emotional heart." },
+        { label: "Weaknesses", value: "Memory erosion." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Mosswood",
+      subtitle: "Female, Caiman Lizard",
+      image: mosswoodImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Sunken Chest" },
+        { label: "Traits", value: "Impulsive, reckless, prankish." },
+        { label: "Strengths", value: "Physical robustness, mischief." },
+        { label: "Weaknesses", value: "Collateral damage." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "Thrasher",
+      subtitle: "Female, Raccoon",
+      image: thrasherImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Pelcran on the Sunken Chest" },
+        { label: "Traits", value: "Daydreaming, improvisational, scrappy." },
+        { label: "Strengths", value: "Unexpected solutions." },
+        { label: "Weaknesses", value: "Reality avoidance." }
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+  ];
+
+  const [activeCharacter, setActiveCharacter] = React.useState(null);
+
   const handleCardClick = (index) => {
-    console.log("Clicked card:", index);
+    setActiveCharacter(characterDetails[index]);
   };
 
   return (
@@ -101,6 +165,20 @@ const Sunkenchest = () => {
 
         </main>
       </div>
+
+      {/* --- POPUP --- */}
+      {activeCharacter && (
+        <PopupWindow onClose={() => setActiveCharacter(null)}>
+          <CharacterInfoCard
+            title={activeCharacter.title}
+            subtitle={activeCharacter.subtitle}
+            image={activeCharacter.image}
+            bodyTable={activeCharacter.bodyTable}
+            sectionTitle={activeCharacter.sectionTitle}
+            body2={activeCharacter.body2}
+          />
+        </PopupWindow>
+      )}
     </PageWrapper>
   );
 };

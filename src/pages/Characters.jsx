@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import XButton from "../components/XButton";
+import PopupWindow from "../components/PopupWindow";
+import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
 import Card from '../components/Card';
@@ -15,6 +17,62 @@ import placeholderImg from "../assets/placeholder.jpg";
 const Characters = () => {
   const navigate = useNavigate();
   const imgClass = "w-full h-full object-cover rounded-md";
+
+  // 1️⃣ State to track active character for popup
+  const [activeCharacter, setActiveCharacter] = React.useState(null);
+
+  // 2️⃣ Example character data
+  const characterData = [
+    {
+      title: "King Ehlk",
+      subtitle: "Male, Hare",
+      image: placeholderImg,
+      bodyTable: [
+        { label: "Nationality", value: "Helderian" },
+        { label: "Role", value: "King" },
+        { label: "Traits", value: "Quietly obsessive, half-mystic in temperament" },
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+    {
+      title: "King Fhogee",
+      subtitle: "Male, Hare",
+      image: placeholderImg,
+      bodyTable: [
+        { label: "Nationality", value: "Helderian" },
+        { label: "Role", value: "King" },
+        { label: "Traits", value: "Commanding, proud. Believes fully in imperial destiny. Pragmatic tactician." },
+      ],
+      sectionTitle: "Backstory",
+      body2: "Unknown.",
+    },
+    {
+      title: "Pelcran",
+      subtitle: "Male, Goat",
+      image: placeholderImg,
+      bodyTable: [
+        { label: "Nationality", value: "Hiugbonian" },
+        { label: "Role", value: "Legendary rebel from the Age of Resistance." },
+        { label: "Traits", value: "Bold, daring, smart." },
+        { label: "Status", value: "Mythic ancestor of pirate identity." },
+      ],
+      sectionTitle: "Backstory",
+      body2: "Unknown."
+    },
+    {
+      title: "Queen Olmek",
+      subtitle: "Female, Hare",
+      image: placeholderImg,
+      bodyTable: [
+        { label: "Nationality", value: "Helderian" },
+        { label: "Role", value: "Queen" },
+        { label: "Traits", value: "Intelligent, inquisitive." },
+      ],
+      sectionTitle: "Backstory",
+      body2: "To be discovered...",
+    },
+  ];
 
   return (
     <PageWrapper>
@@ -36,20 +94,20 @@ const Characters = () => {
 
           <div className="mb-[15px]">
             <Card
-            title="The Disgrace"
-            showSubtitle={false}
-            image={<img src={disgraceflagImg} alt="The Disgrace" className={imgClass} />}
-            onClick={() => navigate("/disgrace")}
+              title="The Disgrace"
+              showSubtitle={false}
+              image={<img src={disgraceflagImg} alt="The Disgrace" className={imgClass} />}
+              onClick={() => navigate("/disgrace")}
             />
-            </div>
+          </div>
 
           <div className="mb-[15px]">
-          <Card
-            title="The Alaric’s Oath"
-            showSubtitle={false}
-            image={<img src={alaricsoathflagImg} alt="Alaric’s Oath" className={imgClass} />}
-            onClick={() => navigate("/alaricsoath")}
-          />
+            <Card
+              title="The Alaric’s Oath"
+              showSubtitle={false}
+              image={<img src={alaricsoathflagImg} alt="Alaric’s Oath" className={imgClass} />}
+              onClick={() => navigate("/alaricsoath")}
+            />
           </div>
 
           <Card
@@ -65,34 +123,33 @@ const Characters = () => {
           </h2>
 
           <div className="flex flex-wrap gap-4 mb-10">
-            <MiniCard 
-            title="King Ehlk"
-            img={placeholderImg} 
-            onClick={() => {}} 
-            />
-
-            <MiniCard 
-            title="King Fhogee"
-            img={placeholderImg} 
-            onClick={() => {}} 
-            />
-
-            <MiniCard 
-            title="Pelcran"
-            img={placeholderImg} 
-            onClick={() => {}} 
-            />
-
-            <MiniCard 
-            title="Queen Olmek"
-            img={placeholderImg} 
-            onClick={() => {}} 
-            />
+            {characterData.map((char, idx) => (
+              <MiniCard
+                key={idx}
+                title={char.title}
+                img={char.image}
+                onClick={() => setActiveCharacter(char)} // 3️⃣ Show popup
+              />
+            ))}
           </div>  
 
         </main>
 
       </div>
+
+      {/* 4️⃣ Popup Window with Character Info */}
+      {activeCharacter && (
+        <PopupWindow onClose={() => setActiveCharacter(null)}>
+          <CharacterInfoCard
+            title={activeCharacter.title}
+            subtitle={activeCharacter.subtitle}
+            image={activeCharacter.image}
+            bodyTable={activeCharacter.bodyTable}
+            sectionTitle={activeCharacter.sectionTitle}
+            body2={activeCharacter.body2}
+          />
+        </PopupWindow>
+      )}
     </PageWrapper>
   );
 };
