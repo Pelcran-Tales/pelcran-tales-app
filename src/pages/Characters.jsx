@@ -122,16 +122,16 @@ const Characters = () => {
             Other Characters
           </h2>
 
-          <div className="flex flex-wrap gap-4 mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
             {characterData.map((char, idx) => (
               <MiniCard
                 key={idx}
                 title={char.title}
                 img={char.image}
-                onClick={() => setActiveCharacter(char)} // 3️⃣ Show popup
+                onClick={() => setActiveCharacter(char)}
               />
             ))}
-          </div>  
+          </div>
 
         </main>
 
