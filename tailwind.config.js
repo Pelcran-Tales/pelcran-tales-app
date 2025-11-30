@@ -5,6 +5,27 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+
+  // ⭐ This is where the safelist goes
+  safelist: [
+    // MiniCard responsive grid
+    "grid-cols-2",
+    "sm:grid-cols-3",
+    "md:grid-cols-4",
+    "lg:grid-cols-5",
+
+    // CharacterInfoCard responsive layout
+    "md:flex-row",
+    "w-full",
+    "md:w-[258px]",
+    "aspect-[258/366]",
+    "rounded-[6px]",
+
+    // MiniCard sizes
+    "min-w-[150px]",
+    "min-h-[186px]",
+  ],
+  
   theme: {
     extend: {
       colors: {
