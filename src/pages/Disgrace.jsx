@@ -6,9 +6,8 @@ import PopupWindow from "../components/PopupWindow";
 import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
-import SectionBlock from '../components/SectionBlock';
 import CardCarousel from '../components/CardCarousel'; // ← your reusable carousel
-import placeholderImg from '../assets/placeholder.jpg';
+import disgraceShipImg from '../assets/disgrace-ship.jpg';
 import disgraceJollyRogerImg from '../assets/disgrace-jolly-roger.jpg';
 import cosgroveImg from '../assets/cosgrove.jpg';
 import dubeothImg from '../assets/dubeoth.jpg';
@@ -114,18 +113,25 @@ const Disgrace = () => {
             A crew of bold, energetic and risk-taking Pelcrans.
           </p>
 
-          {/* SectionBlock → The Ship */}
-          <SectionBlock
-            titleH2="The Ship"
-            titleH4={false}
-            imgSrc={placeholderImg}
-            imgAlt="The Disgrace"
-            className="mb-[24px]"
-          >
-            <p>The Disgrace is a scar-lined fifie bound to its crew by a rare alchemical pitch, and every pre-dawn she draws them into a dream-heavy slumber so the Blackblood can knit her wounds.</p>
-            <p>With each repair the bond tightens, sharpening her dark talons and tinting her sails with the colors of the crew’s shifting emotions.</p>
-            <p>One day, when the pitch finally claims every plank, the Disgrace will awaken as something far more than a ship — and the crew’s unity, or fracture, will decide what it becomes…</p>
-          </SectionBlock>
+          {/* --- SHIP SECTION (No SectionBlock) --- */}
+          <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">
+            The Ship
+          </h2>
+            
+          {/* Image + body */}
+          <div className="mb-[24px]">
+            <img
+             Src={disgraceShipImg}
+             Alt="The Disgrace Ship"
+            className="w-full md:w-64 md:float-left md:mr-6 mb-4 rounded-lg shadow-md"
+             />
+             <p className="font-body text-body text-bodyText">
+              The Disgrace is a scar-lined fifie bound to its crew by a rare alchemical pitch, and every pre-dawn she draws them into a dream-heavy slumber so the Blackblood can knit her wounds. 
+              With each repair the bond tightens, sharpening her dark talons and tinting her sails with the colors of the crew’s shifting emotions. <br />
+              One day, when the pitch finally claims every plank, the Disgrace will awaken as something far more than a ship — and the crew’s unity, or fracture, will decide what it becomes…
+            </p>
+            <div className="clear-left" />
+          </div>
 
           {/* H2 → Jolly Roger */}
           <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">

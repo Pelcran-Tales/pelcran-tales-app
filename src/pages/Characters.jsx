@@ -92,6 +92,13 @@ const Characters = () => {
             Pelcran Crews
           </h2>
 
+          <Card
+            title="The Sunken Chest"
+            showSubtitle={false}
+            image={<img src={sunkenchestflagImg} alt="The Sunken Chest" className={imgClass} />}
+            onClick={() => navigate("/sunkenchest")}
+          />
+
           <div className="mb-[15px]">
             <Card
               title="The Disgrace"
@@ -109,13 +116,6 @@ const Characters = () => {
               onClick={() => navigate("/alaricsoath")}
             />
           </div>
-
-          <Card
-            title="The Sunken Chest"
-            showSubtitle={false}
-            image={<img src={sunkenchestflagImg} alt="The Sunken Chest" className={imgClass} />}
-            onClick={() => navigate("/sunkenchest")}
-          />
 
           {/* Other Characters section */}
           <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg mt-[24px]">

@@ -6,9 +6,8 @@ import PopupWindow from "../components/PopupWindow";
 import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
-import SectionBlock from '../components/SectionBlock';
 import CardCarousel from '../components/CardCarousel'; // Proper import
-import placeholderImg from '../assets/placeholder.jpg';
+import alaricsOathShipImg from '../assets/alarics-oath-ship.jpg';
 import alaricsoathJollyRogerImg from '../assets/alaricsoath-jolly-roger.jpg';
 import brunnickImg from '../assets/brunnick.jpg';
 import grunnickImg from '../assets/grunnick.jpg';
@@ -114,25 +113,28 @@ const Alaricsoath = () => {
             A crew of disciplined, clever and methodical Pelcrans.
           </p>
 
-          {/* SectionBlock → The Ship */}
-          <SectionBlock
-            titleH2="The Ship"
-            titleH4={false}
-            imgSrc={placeholderImg}
-            imgAlt="The Alaric's Oath"
-            className="mb-[24px]"
-          >
-            <p>
+        {/* --- SHIP SECTION (No SectionBlock) --- */}
+          <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">
+            The Ship
+          </h2>
+            
+          {/* Image + body */}
+          <div className="mb-[24px]">
+            <img
+             src={alaricsOathShipImg}
+             alt="The Alaric's Oath Ship"
+             className="w-full md:w-64 md:float-left md:mr-6 mb-4 rounded-lg shadow-md"
+             />
+             <p className="font-body text-body text-bodyText">
               The Alaric’s Oath is a vigilant sloop that glides like a thought through dark water — silent, watchful, and lit from within by its 
-              rune-carved masts. When danger nears, the carvings flare to life, and the ship’s twin telescopes swing with predatory precision 
+              rune-carved mast. When danger nears, the carvings flare to life, and the ship’s twin telescopes swing with predatory precision 
               toward unseen shapes in the distance. But every warning carries a price: one crew member is struck blind, chosen at random by the 
-              Oath itself.
-            </p>
-            <p>
+              Oath itself. <br />
               As their discipline holds and their trust frays, a single question grows sharper than any blade — how much foresight 
               is worth the darkness that follows?
             </p>
-          </SectionBlock>
+            <div className="clear-left" />
+          </div>
 
           {/* H2 → Jolly Roger */}
           <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">

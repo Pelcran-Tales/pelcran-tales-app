@@ -5,8 +5,11 @@ import PageWrapper from '../components/PageWrapper';
 import SectionBlock from '../components/SectionBlock';
 
 import loreImg from '../assets/lore.jpg';
-import placeholderImg from '../assets/placeholder.jpg';
 import ageOfVillagesImg from '../assets/age-of-villages.jpg';
+import whisperofKingImg from '../assets/whisper-of-a-king.jpg';
+import helderianConquestImg from '../assets/helderian-conquest.jpg';
+import ageOfResistanceImg from '../assets/age-of-resistance.jpg';
+import ageOfPelcransImg from '../assets/age-of-pelcrans.jpg';
 
 import XButton from "../components/XButton";
 import { useNavigate } from "react-router-dom";
@@ -56,11 +59,11 @@ const Lore = () => {
         <p className="font-body text-body text-bodyText mb-section-gap">
           In Pelcran Tales, lore isn’t just back-story, but the pulse of the Hiugbon Archipelago — a tale woven from history and legend alike.<br /> 
           The timeline unfolds through five eras:<br /> 
-          - The Age of Villages,<br /> 
-          - The Whisper of a King,<br /> 
-          - The Helderian Conquest,<br /> 
-          - The Age of Resistance,<br />
-          - The Age of Pelcrans.
+          • The Age of Villages,<br /> 
+          • The Whisper of a King,<br /> 
+          • The Helderian Conquest,<br /> 
+          • The Age of Resistance,<br />
+          • The Age of Pelcrans.
         </p>
 
         {/* force next content to appear below the floated image */}
@@ -97,7 +100,7 @@ const Lore = () => {
         <SectionBlock
           titleH2="The Whisper of a King"
           titleH4="20 to 0 years before Event 0"
-          imgSrc={placeholderImg}
+          imgSrc={whisperofKingImg}
           imgAlt="The Whisper of a King"
         >
           Centuries later, when the Hiugbon Archipelago had long vanished from charts, its name returned in a dying breath.
@@ -145,7 +148,7 @@ const Lore = () => {
         <SectionBlock
           titleH2="The Helderian Conquest"
           titleH4="0 to 10 years after Event 0"
-          imgSrc={placeholderImg}
+          imgSrc={helderianConquestImg}
           imgAlt="The Helderian Conquest"
         >
           Under King Fhogee, in what became known as Year Zero, the Empire’s fleets set sail to reclaim what was by now considered their ancestral domain.
@@ -163,7 +166,7 @@ const Lore = () => {
         <SectionBlock
           titleH2="The Age of Resistance"
           titleH4="10 to 30 years after Event 0"
-          imgSrc={placeholderImg}
+          imgSrc={ageOfResistanceImg}
           imgAlt="The Age of Resistance"
         >
           The fall of the villages did not end the Hiugbonian spirit. In the years that followed, those who escaped the burning shores fled to the sea — 
@@ -192,11 +195,11 @@ const Lore = () => {
         <SectionBlock
           titleH2="The Age of Pelcrans"
           titleH4="10 to 30 years after Event 0"
-          imgSrc={placeholderImg}
+          imgSrc={ageOfPelcransImg}
           imgAlt="The Age of Pelcrans"
         >
           Eighty years have passed since Pelcran’s victory. <br />
-          The Helderian Empire endures upon the land, its fortress-city Restrad gleaming with the spoils of peace. 
+          The Helderian Empire endures upon the land, its fortress-city Restrad Port gleaming with the spoils of peace. 
           But beyond the reefs, freedom sails.
           <br /><br />
           The Pelcrans, descendants of rebels and wanderers, live by salt and storm. To them, being Hiugbonian is heritage — being Pelcran is vow. The sea is both 

@@ -6,9 +6,8 @@ import PopupWindow from "../components/PopupWindow";
 import CharacterInfoCard from "../components/CharacterInfoCard";
 import { useNavigate } from "react-router-dom";
 
-import SectionBlock from '../components/SectionBlock';
 import CardCarousel from '../components/CardCarousel';
-import placeholderImg from '../assets/placeholder.jpg';
+import sunkenchestShipImg from '../assets/sunken-chest-ship.jpg';
 import sunkenchestJollyRogerImg from '../assets/sunkenchest-jolly-roger.jpg';
 import linoothImg from '../assets/linooth.jpg';
 import mosswoodImg from '../assets/mosswood.jpg';
@@ -114,25 +113,28 @@ const Sunkenchest = () => {
             A crew of quirky, inventive, playful and imaginative Pelcrans.
           </p>
 
-          {/* SectionBlock → The Ship */}
-          <SectionBlock
-            titleH2="The Ship"
-            titleH4={false}
-            imgSrc={placeholderImg}
-            imgAlt="The Sunken Chest"
-            className="mb-[24px]"
-          >
-            <p>
-              The Sunken Chest is a wandering dhow stitched from myth and mischief, its foredeck said to be the very “chest” of Pelcran’s 
-              long-lost ship. Its Veil Sail can shimmer to life at a moment’s notice, bending light until the vessel dissolves into mist — 
-              but every use demands a quiet sacrifice. Ol’Muzzle, who bound their soul to the sail by choice, loses another sliver of 
-              memory each time the veil is drawn.
-            </p>
-            <p>
-              And as the crew chases hunches, dreams, and half-mad inspirations across the archipelago, one truth shadows even their brightest 
-              escapades: how much of a past can be spent before the present forgets its own heart?
-            </p>
-          </SectionBlock>
+          {/* --- SHIP SECTION (No SectionBlock) --- */}
+          <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">
+            The Ship
+          </h2>
+            
+          {/* Image + body */}
+          <div className="mb-[24px]">
+            <img
+               src={sunkenchestShipImg}
+               alt="The Sunken Chest Ship"
+               className="w-full md:w-64 md:float-left md:mr-6 mb-4 rounded-lg shadow-md"
+             />
+             <p className="font-body text-body text-bodyText">
+               The Sunken Chest is a wandering dhow stitched from myth and mischief, its foredeck said to be the very “chest” of Pelcran’s long-lost ship. 
+               Its Veil Sail can shimmer to life at a moment’s notice, bending light until the vessel dissolves into mist — but every use demands a quiet 
+               sacrifice. Ol’Muzzle, who bound their soul to the sail by choice, loses another sliver of memory each time the veil is drawn. <br />
+               And as the crew chases hunches, dreams, and half-mad inspirations across the archipelago, one truth shadows even their brightest escapades: 
+               how much of a past can be spent before the present forgets its own heart?
+             </p>
+             <div className="clear-left" />
+          </div>
+
 
           {/* H2 → Jolly Roger */}
           <h2 className="font-heading text-h2 text-primaryText md:text-h2-md lg:text-h2-lg mb-[15px] mt-0">
