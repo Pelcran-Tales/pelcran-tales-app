@@ -15,34 +15,44 @@ const Home = () => {
 
   // Calculate background position reliably
   useLayoutEffect(() => {
-    const updateBgTop = () => {
-      if (firstSectionRef.current) {
-        const rect = firstSectionRef.current.getBoundingClientRect();
-        const scrollTop = window.scrollY || window.pageYOffset;
-        setBgTop(rect.bottom + scrollTop + 24); // 24px gap
-      }
-    };
-
-    // Initial measurement after paint
-    const rafId = requestAnimationFrame(updateBgTop);
-
-    // Resize listener
-    window.addEventListener('resize', updateBgTop);
-
-    // Optional: observe height changes dynamically
-    let resizeObserver;
-    if (firstSectionRef.current && 'ResizeObserver' in window) {
-      resizeObserver = new ResizeObserver(updateBgTop);
-      resizeObserver.observe(firstSectionRef.current);
+  const updateBgTop = () => {
+    if (firstSectionRef.current) {
+      const rect = firstSectionRef.current.getBoundingClientRect();
+      setBgTop(rect.bottom + window.scrollY + 24);
     }
+  };
 
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener('resize', updateBgTop);
-      if (resizeObserver) resizeObserver.disconnect();
-    };
-  }, []);
+  const images = firstSectionRef.current?.querySelectorAll('img') || [];
+  let loadedCount = 0;
 
+  if (images.length === 0) {
+    // No images, just measure immediately
+    updateBgTop();
+  } else {
+    // Wait for all images to load
+    images.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === images.length) updateBgTop();
+        });
+        img.addEventListener('error', () => {
+          loadedCount++;
+          if (loadedCount === images.length) updateBgTop();
+        });
+      }
+    });
+    if (loadedCount === images.length) updateBgTop();
+  }
+
+  window.addEventListener('resize', updateBgTop);
+
+  return () => {
+    window.removeEventListener('resize', updateBgTop);
+  };
+}, []);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [isSent, setIsSent] = useState(false);
