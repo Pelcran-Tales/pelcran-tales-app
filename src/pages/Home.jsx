@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import placeholderImg from '../assets/placeholder.jpg';
@@ -13,7 +13,8 @@ const Home = () => {
   const firstSectionRef = useRef(null);
   const [bgTop, setBgTop] = useState(0);
 
-  useEffect(() => {
+  // Calculate background position reliably
+  useLayoutEffect(() => {
     const updateBgTop = () => {
       if (firstSectionRef.current) {
         const rect = firstSectionRef.current.getBoundingClientRect();
@@ -22,9 +23,24 @@ const Home = () => {
       }
     };
 
-    updateBgTop();
+    // Initial measurement after paint
+    const rafId = requestAnimationFrame(updateBgTop);
+
+    // Resize listener
     window.addEventListener('resize', updateBgTop);
-    return () => window.removeEventListener('resize', updateBgTop);
+
+    // Optional: observe height changes dynamically
+    let resizeObserver;
+    if (firstSectionRef.current && 'ResizeObserver' in window) {
+      resizeObserver = new ResizeObserver(updateBgTop);
+      resizeObserver.observe(firstSectionRef.current);
+    }
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', updateBgTop);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
   }, []);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
