@@ -14,11 +14,12 @@ const Card = ({
         flex items-center
         gap-3
         rounded-md
-        bg-[#f8f2e6]
+        bg-[#f4ead5]
+        shadow-md
         transition-all duration-150
         cursor-pointer
-        hover:bg-[#FBF7EE]
-        hover:shadow-none
+        hover:bg-[#f8f2e6]
+        hover:shadow-md
         w-full
         h-[87px]
         p-0
@@ -43,14 +44,14 @@ const Card = ({
       </div>
 
       {/* Text content */}
-      <div className="flex flex-col justify-center items-start w-full h-full pr-3">
+      <div className="flex flex-col justify-center items-start w-full h-full pr-3 gap-1.5">
         {showSubtitle && (
-          <div className="font-body text-body" style={{ color: "#5B4B36" }}>
-            {subtitle}
-          </div>
+         <div className="font-body text-body" style={{ color: "#5B4B36" }}>
+           {subtitle}
+         </div>
         )}
         <div className="font-heading text-h6 text-primaryText leading-[21px]">
-          {title}
+         {title}
         </div>
       </div>
     </div>

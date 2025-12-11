@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import MessageButton from "../components/MessageButton";
 import PopupWindow from "../components/PopupWindow";
+import Card from '../components/Card';
+import placeholderImg from '../assets/placeholder.jpg';
 import PrimaryButton from "../components/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 
@@ -43,8 +45,23 @@ const navigate = useNavigate();
       <main>
         {/* H2 subtitle */}
         <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg">
-          Pelcran Tales log-entries are coming soon!
+          Season 1
         </h2>
+
+        <div className="mb-[15px]">
+        <Card
+          title="Episode Title"
+          subtitle="Log-Entry 1"
+          image={
+            <img
+              src={placeholderImg}
+              alt="Log-Entry 1"
+              className="w-full h-full object-cover rounded-md"
+            />
+          }
+          onClick={() => navigate("/log-entry1")}
+        />
+        </div>
       </main>
 
       {/* Fixed MessageButton */}

@@ -39,7 +39,7 @@ const CardCarousel = ({ cards = [], onCardClick }) => {
           <SwiperSlide key={idx} className="flex justify-center">
             <div
               onClick={() => onCardClick(idx)}
-              className="w-[183px] h-[221px] p-3 bg-[#F4EAD5] rounded-[6px] cursor-pointer flex flex-col items-center shadow-md"
+              className="w-[183px] h-[221px] p-3 bg-[#F4EAD5] hover:bg-[#f8f2e6] rounded-[6px] cursor-pointer flex flex-col items-center shadow-md"
             >
               <img
                 src={card.img || placeholderImg}

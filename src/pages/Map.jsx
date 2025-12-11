@@ -114,9 +114,8 @@ const Map = () => {
 
           {/* Body text below image */}
           <p className="font-body text-body text-bodyText mb-[36px]">
-            This hand-drawn map of the Hiugbon Archipelago reveals key 
-            locations that hint at the larger story, guiding you deeper 
-            into this pirate-ruled world.
+            Interact with this hand-drawn map of the Hiugbon Archipelago to discover its key 
+            locations.
           </p>
 
         </main>

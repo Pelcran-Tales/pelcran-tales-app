@@ -92,12 +92,14 @@ const Characters = () => {
             Pelcran Crews
           </h2>
 
-          <Card
+          <div className="mb-[15px]">
+           <Card
             title="The Sunken Chest"
             showSubtitle={false}
             image={<img src={sunkenchestflagImg} alt="The Sunken Chest" className={imgClass} />}
             onClick={() => navigate("/sunkenchest")}
           />
+          </div>
 
           <div className="mb-[15px]">
             <Card

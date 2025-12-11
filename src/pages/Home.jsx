@@ -1,23 +1,38 @@
-// src/pages/Home.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import PageWrapper from '../components/PageWrapper';
 import placeholderImg from '../assets/placeholder.jpg';
 import MessageButton from "../components/MessageButton";
 import PrimaryButton from "../components/PrimaryButton";
 import PopupWindow from "../components/PopupWindow";
-import { ReactComponent as ArrowRight } from "../assets/arrow-right.svg";
+import Card from '../components/Card';
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+  const firstSectionRef = useRef(null);
+  const [bgTop, setBgTop] = useState(0);
+
+  useEffect(() => {
+    const updateBgTop = () => {
+      if (firstSectionRef.current) {
+        const rect = firstSectionRef.current.getBoundingClientRect();
+        const scrollTop = window.scrollY || window.pageYOffset;
+        setBgTop(rect.bottom + scrollTop + 24); // 24px gap
+      }
+    };
+
+    updateBgTop();
+    window.addEventListener('resize', updateBgTop);
+    return () => window.removeEventListener('resize', updateBgTop);
+  }, []);
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [isSent, setIsSent] = useState(false); // track if message was sent
+  const [isSent, setIsSent] = useState(false);
 
   const handleSend = async () => {
     if (!message.trim()) return;
-
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbwK_nb9YuEJ68Ly1mb11OqueBZ0_nqRcgikWJ-ilJSh2KAl6jB2S_v3DL9amFxmmYhc/exec",
@@ -27,12 +42,10 @@ const Home = () => {
           body: JSON.stringify({ message }),
         }
       );
-
       const data = await response.json();
       console.log(data);
-
-      setMessage("");     // clear textarea
-      setIsSent(true);    // show thank you message
+      setMessage("");
+      setIsSent(true);
     } catch (error) {
       console.error(error);
       alert("Failed to send message. Try again.");
@@ -41,45 +54,75 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      <Header title="New Log-Entry" />
+      {/* Background dynamically positioned */}
+      <div
+        className="absolute left-0 w-full bg-[#F4EAD5]"
+        style={{ top: `${bgTop}px`, bottom: 0 }}
+      />
+
+      <Header title="Pelcran Tales" />
 
       <main>
+        {/* First section we measure */}
+        <div ref={firstSectionRef}>
+          <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg">
+            Latest Log-Entry
+          </h2>
 
-        <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg">
-          Pelcran Tales log-entries are coming soon!
-        </h2>
+          <div className="mb-[15px]">
+            <Card
+              title="Episode Title"
+              subtitle="Log-Entry 1"
+              image={
+                <img
+                  src={placeholderImg}
+                  alt="Log-Entry 1"
+                  className="w-full h-full object-cover rounded-md"
+                />
+              }
+              onClick={() => navigate("/log-entry1")}
+            />
+          </div>
 
-        <img
-          src={placeholderImg}
-          alt="Placeholder"
-          className="w-full md:w-64 md:float-left md:mr-6 mb-4 rounded-lg shadow-md"
-        />
+          <p className="font-body text-body text-bodyText">
+            For previous Log-Entries go to{" "}
+            <span
+              className="underline"
+              style={{ color: "#642126", cursor: "pointer" }}
+              onClick={() => navigate("/logbook")}
+            >
+              Logbook
+            </span>.
+          </p>
+        </div>
 
-        <p className="font-body text-body text-bodyText mb-4">
-          Sed eros nisl, accumsan nec arcu a, sodales finibus odio. Nunc congue neque in pulvinar volutpat. Duis lacus justo, malesuada eu justo vestibulum, tincidunt tempus lorem. Curabitur fringilla pellentesque est, a hendrerit turpis pretium quis. Aenean eu metus ullamcorper, auctor tellus quis, lacinia enim. Suspendisse nec lectus aliquam, commodo nisi vel, feugiat nulla. Praesent velit turpis, sollicitudin id quam id, tempor ullamcorper dolor. Nullam leo est, placerat finibus porta sed, blandit id nulla. Suspendisse malesuada, metus vitae dignissim consequat, ante sapien porta massa, quis laoreet leo quam vitae diam. Curabitur sed rhoncus massa. Vivamus vel lectus lorem. Vestibulum leo dolor, tempor ac nunc quis, mollis pellentesque leo. Quisque mattis leo justo, vitae fermentum diam tempor at. Integer ut pharetra arcu.
-        </p>
+        {/* Second section */}
+        <div className="relative mt-6">
+          <h2 className="font-heading text-h2 text-primaryText pt-6 mb-4 md:text-h2-md lg:text-h2-lg">
+            First time here?
+          </h2>
 
-        <p className="font-body text-body text-bodyText">
-          Donec eget efficitur quam. Maecenas eu sollicitudin lorem. In nec fermentum justo, non bibendum lacus. Nam at pretium sem, non congue lacus. Sed ullamcorper, nibh vitae semper elementum, massa mi tristique turpis, a eleifend mauris ante sed tellus. In feugiat ligula at est tempor, tempor accumsan nisi elementum. Integer ullamcorper porttitor nisi sed laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis pellentesque velit vel nisl tincidunt interdum. Fusce vel magna quam. Nam id consectetur sem. Nulla vitae mi at sem semper ornare. Curabitur eget mollis massa. Suspendisse porttitor, dolor sed semper tincidunt, ligula diam vehicula velit, ac posuere eros velit eu arcu. Ut arcu lorem, bibendum eu est quis, accumsan consectetur mi.
-        </p>
-
-        <div className="clear-both" />
-
-        <div className="mt-[15px] mb-[0px]">
-          <PrimaryButton
-            label="PREVIOUS ENTRIES"
-            rightIcon={ArrowRight}
-            onClick={() => navigate("/logbook")}
-          />
+          <p className="font-body text-body text-bodyText">
+            To follow the Log-Entries with clarity, first learn the forces that shaped these waters... Go to{" "}
+            <span
+              className="underline"
+              style={{ color: "#642126", cursor: "pointer" }}
+              onClick={() => navigate("/foundations")}
+            >
+              Foundations
+            </span>.
+          </p>
         </div>
       </main>
 
       {/* Fixed MessageButton */}
       <div className="fixed bottom-[93px] right-[5%] md:right-[12.5%] z-50 safe-bottom safe-right">
-        <MessageButton onClick={() => {
-          setIsPopupOpen(true);
-          setIsSent(false); // reset thank you message when reopening
-        }} />
+        <MessageButton
+          onClick={() => {
+            setIsPopupOpen(true);
+            setIsSent(false);
+          }}
+        />
       </div>
 
       {/* Popup */}
