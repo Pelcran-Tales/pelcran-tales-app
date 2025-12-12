@@ -11,51 +11,26 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const firstSectionRef = useRef(null);
+  const secondH2Ref = useRef(null);
   const [bgTop, setBgTop] = useState(0);
-
-  // Calculate background position reliably
-  useLayoutEffect(() => {
-  const updateBgTop = () => {
-    if (firstSectionRef.current) {
-      const rect = firstSectionRef.current.getBoundingClientRect();
-      setBgTop(rect.bottom + window.scrollY + 24);
-    }
-  };
-
-  const images = firstSectionRef.current?.querySelectorAll('img') || [];
-  let loadedCount = 0;
-
-  if (images.length === 0) {
-    // No images, just measure immediately
-    updateBgTop();
-  } else {
-    // Wait for all images to load
-    images.forEach(img => {
-      if (img.complete) {
-        loadedCount++;
-      } else {
-        img.addEventListener('load', () => {
-          loadedCount++;
-          if (loadedCount === images.length) updateBgTop();
-        });
-        img.addEventListener('error', () => {
-          loadedCount++;
-          if (loadedCount === images.length) updateBgTop();
-        });
-      }
-    });
-    if (loadedCount === images.length) updateBgTop();
-  }
-
-  window.addEventListener('resize', updateBgTop);
-
-  return () => {
-    window.removeEventListener('resize', updateBgTop);
-  };
-}, []);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [isSent, setIsSent] = useState(false);
+
+  // Calculate background position based on second H2
+  useLayoutEffect(() => {
+    const updateBgTop = () => {
+      if (secondH2Ref.current) {
+        const rect = secondH2Ref.current.getBoundingClientRect();
+        setBgTop(rect.top - 24); // 24px above the second H2
+      }
+    };
+
+    updateBgTop(); // Initial calculation
+    window.addEventListener('resize', updateBgTop);
+
+    return () => window.removeEventListener('resize', updateBgTop);
+  }, []);
 
   const handleSend = async () => {
     if (!message.trim()) return;
@@ -80,16 +55,16 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      {/* Background dynamically positioned */}
+      {/* Fixed Background */}
       <div
-        className="absolute left-0 w-full bg-[#F4EAD5]"
+        className="fixed left-0 w-full bg-[#F4EAD5]"
         style={{ top: `${bgTop}px`, bottom: 0 }}
       />
 
       <Header title="Pelcran Tales" />
 
       <main>
-        {/* First section we measure */}
+        {/* First section */}
         <div ref={firstSectionRef}>
           <h2 className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg">
             Latest Log-Entry
@@ -122,11 +97,14 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Second section */}
-        <div className="relative mt-6">
-          <h2 className="font-heading text-h2 text-primaryText pt-6 mb-4 md:text-h2-md lg:text-h2-lg">
-            First time here?
-          </h2>
+        {/* Second section fixed at bottom */}
+        <div className="fixed bottom-[150px] left-1/2 transform -translate-x-1/2 mx-auto w-[90%] md:w-[75%] max-w-[1200px]">
+         <h2
+           ref={secondH2Ref}
+           className="font-heading text-h2 text-primaryText mb-4 md:text-h2-md lg:text-h2-lg"
+         >
+           First time here?
+         </h2>
 
           <p className="font-body text-body text-bodyText">
             To follow the Log-Entries with clarity, first learn the forces that shaped these waters... Go to{" "}
@@ -159,7 +137,7 @@ const Home = () => {
               Message in a Bottle
             </h2>
             <p className="text-body text-bodyText mb-[24px]">
-              Pelcran Tales is a fantasy world of pirate animals, the Pelcrans — a story of resistance, identity, and survival across a contested archipelago. 
+              Pelcran Tales is a fantasy world of pirate animals, the Pelcrans — a story of resistance, identity, and survival across a contested archipelago.
               <br /><br />
               Use the space below to share your thoughts. Send your bottle drifting and sail on… the sea will carry it.<br /> No email or personal data is collected unless you choose to include it in your message.
             </p>
